@@ -1,8 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## DDB Dev Test
 
-## Getting Started
+### How to submit
+- Fork the repo
+- Make several small commits, so we can see how you think :)
+- Share your forked repo to us
 
-First, run the development server:
+### Background
+The objective of this task is to showcase your skills towards a few keys components that we require for our current project. 
+
+In this test you have a notification banner with an envolope icon that shows the total amount of unread messages, and right below a panel with a list of messages received (read and unread) and below that is the reading message panel (initially invisible with opacity 0).
+
+### Task
+
+#### Notification widget at the top
+- small animation on the envelope when:
+  - messages received - animation already in place to show after 3 seconds - you can change or improve however you like
+- "number roller" animation on messages unread upon update
+
+#### Messages list panel
+- list all messages from "data" (imported from 'notifications.json')
+- list to show messages "title"
+- bold for unread messages
+- clickable per line and callback to review "message reading block"
+
+#### Message reading block
+- to display title and message
+- add animation "appear" to the block
+
+
+### Task Checklist
+- [ ] Animations with GSAP
+- [ ] useContext for state management (extra points for custom hook)
+- [ ] use TailwindCSS for styling
+
+------
+
+### Run the project
 
 ```bash
 npm run dev
