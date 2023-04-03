@@ -9,8 +9,8 @@ const MessageList: React.FC = () => {
   const ulRef = React.useRef<HTMLUListElement>(null);
 
   const handleItemClick = (id: number) => {
-    const notification = state.notifications.find((notification:NotificationType) => notification.id === id)
-    if(notification.unread){
+    const notification = state.notifications.find((notification:NotificationType) => notification.id === id) || null
+    if(notification?.unread){
         state.notifications.some((notification:NotificationType) => {
             if(notification.id === id) notification.unread = false
         })
