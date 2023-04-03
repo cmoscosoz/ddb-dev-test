@@ -4,7 +4,6 @@ import { NotificationType } from "types/notification";
 const MessageList: React.FC = () => {
   const state = useAppContext();
   const handleItemClick = (id: number) => {
-    console.log(id);
     const notification = state.notifications.find((notification:NotificationType) => notification.id === id)
     if(notification.unread){
         state.notifications.some((notification:NotificationType) => {
