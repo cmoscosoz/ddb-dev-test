@@ -3,6 +3,9 @@ import gsap from "gsap";
 import { FiMail } from "react-icons/fi";
 import data from "data/notifications.json";
 
+//components imports
+import MessageList from "components/MessageList";
+
 const Home: React.FC = () => {
   const { notifications } = data;
   const notificationRef = useRef<HTMLDivElement>(null);
@@ -68,15 +71,7 @@ const Home: React.FC = () => {
           "w-full h-fit flex content-end items-start justify-center py-10 px-20"
         }
       >
-        <div className={"bg-gray-200 w-full h-full rounded-lg p-2 h-60"}>
-          <p>LIST OF MESSAGES</p>
-          <ul>
-            <li>message 1</li>
-            <li>message 2</li>
-            <li>message 3</li>
-            <li>etc</li>
-          </ul>
-        </div>
+        <MessageList />
       </div>
       <div
         className={
