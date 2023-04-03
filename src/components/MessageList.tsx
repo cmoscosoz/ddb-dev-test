@@ -1,8 +1,13 @@
+import React from "react";
+import gsap from "gsap";
+
 import { useAppContext } from "context/NotificationsContext";
 import { NotificationType } from "types/notification";
 
 const MessageList: React.FC = () => {
   const state = useAppContext();
+  const ulRef = React.useRef<HTMLUListElement>(null);
+
   const handleItemClick = (id: number) => {
     const notification = state.notifications.find((notification:NotificationType) => notification.id === id)
     if(notification.unread){
@@ -12,10 +17,18 @@ const MessageList: React.FC = () => {
     }
     state.setSelectedNotification(notification)
   }
+
+  React.useEffect(() => {
+    const children = ulRef.current?.children
+    if(children){
+      gsap.fromTo(children, {y: 40, opacity: 0}, {y: 0, opacity: 1, stagger: 0.1, ease: "Power.out3" , duration: 0.5})
+    }
+  }, [])
+  
   return (
     <div className={"bg-gray-200 w-full h-full rounded-lg p-2 h-60"}>
       <p className="text-center tracking-wider">LIST OF MESSAGES</p>
-      <ul>
+      <ul ref={ulRef}>
         {state.notifications.map((notification: NotificationType) => {
           const className = notification.unread ? "font-bold" : "";
           return (
