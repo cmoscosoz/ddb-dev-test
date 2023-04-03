@@ -23,6 +23,9 @@ const MessageBlock: React.FC = () => {
         }
       );
     }
+    return () => {
+      gsap.killTweensOf(messageBlock);
+    };
   },[selectedNotification])
 
   
