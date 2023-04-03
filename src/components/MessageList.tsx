@@ -2,15 +2,22 @@ import { useAppContext } from "context/NotificationsContext";
 import { NotificationType } from "types/notification";
 
 const MessageList: React.FC = () => {
-  const notifications = useAppContext();
+  const state = useAppContext();
   const handleItemClick = (id: number) => {
     console.log(id);
+    const notification = state.notifications.find((notification:NotificationType) => notification.id === id)
+    if(notification.unread){
+        state.notifications.some((notification:NotificationType) => {
+            if(notification.id === id) notification.unread = false
+        })
+    }
+    state.setSelectedNotification(notification)
   }
   return (
     <div className={"bg-gray-200 w-full h-full rounded-lg p-2 h-60"}>
       <p className="text-center tracking-wider">LIST OF MESSAGES</p>
       <ul>
-        {notifications.map((notification: NotificationType) => {
+        {state.notifications.map((notification: NotificationType) => {
           const className = notification.unread ? "font-bold" : "";
           return (
             <li
