@@ -5,6 +5,7 @@ import data from "data/notifications.json";
 
 //components imports
 import MessageList from "components/MessageList";
+import MessageBlock from "components/MessageBlock";
 
 const Home: React.FC = () => {
   const { notifications } = data;
@@ -78,11 +79,7 @@ const Home: React.FC = () => {
           "w-full h-fit flex content-end items-start justify-center py-10 px-20"
         }
       >
-        <div className={"bg-gray-200 w-full rounded-lg p-2 h-96 opacity-0"}>
-          <h4 className={"text-center py-2"}>Title</h4>
-          <div className={"h-[1px] w-full bg-black/[0.1]"} />
-          <p className={"whitespace-pre-wrap text-center py-4"}>Text</p>
-        </div>
+       <MessageBlock />
       </div>
     </div>
   );
